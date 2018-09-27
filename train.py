@@ -42,7 +42,7 @@ def train():
 
 
     callbacks = []
-    x_train, y_train = Dataset.load_images('/Users/zhangxiao/Desktop/3D_mri_Classification_keras/Data')
+    x_train, y_train = Dataset.load_images('/home/xzhang/kerasLab/3D_MRI_Classification/Data')
     # y_train = np_utils.to_categorical(y_train, 2)
     # model.fit_generator(train_generator,
     #     epochs=20,
