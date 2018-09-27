@@ -24,7 +24,7 @@ def select_optimizer(optimizer_name, optimizer_args):
 #/home/xzhang/kerasLab/3D_MRI_Classification/Data
 def train():
     train_generator, train_steps_per_epoch, val_generator, val_steps_per_epoch = Dataset.create_generators(
-            '/home/xzhang/kerasLab/3D_MRI_Classification/Data', 32,
+            '/home/xzhang/kerasLab/3D_MRI_Classification/Data', 24,
             validation_split=0.2,
             shuffle_train_val=True,
             shuffle=True,
@@ -32,7 +32,7 @@ def train():
 
     images, labels = next(train_generator)
     _, height, width, length, channels = images.shape
-    print(images.shape, labels)
+    # print(images.shape, labels)
     classes_num = 2 #len(set(labels.flatten()))
 
     model = Models.dilated_densenet(height=height, width=width, length=length, channels=channels, 
