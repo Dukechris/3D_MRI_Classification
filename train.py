@@ -42,18 +42,18 @@ def train():
 
 
     callbacks = []
-    x_train, y_train = Dataset.load_images('/home/xzhang/kerasLab/3D_MRI_Classification/Data')
+    # x_train, y_train = Dataset.load_images('/home/xzhang/kerasLab/3D_MRI_Classification/Data')
     # y_train = np_utils.to_categorical(y_train, 2)
-    # model.fit_generator(train_generator,
-    #     epochs=20,
-    #     steps_per_epoch=train_steps_per_epoch,
-    #     validation_data=val_generator,
-    #     validation_steps=val_steps_per_epoch,
-    #     callbacks=callbacks, verbose=2)
+    model.fit_generator(train_generator,
+        epochs=20,
+        steps_per_epoch=train_steps_per_epoch,
+        validation_data=val_generator,
+        validation_steps=val_steps_per_epoch,
+        callbacks=callbacks, verbose=2)
 
     # y_train = np_utils.to_categorical(y_train, 2)
     # print(y_train)
-    model.fit(x_train, y_train, batch_size=32, epochs=20, verbose=2)
+    # model.fit(x_train, y_train, batch_size=32, epochs=20, verbose=2)
 
 
     return 0
