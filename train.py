@@ -24,7 +24,7 @@ def select_optimizer(optimizer_name, optimizer_args):
 #/home/xzhang/kerasLab/3D_MRI_Classification/Data
 def train():
     train_generator, train_steps_per_epoch, val_generator, val_steps_per_epoch = Dataset.create_generators(
-            '/Users/zhangxiao/Desktop/3D_MRI_Classification/Data', 4,
+            '/Users/zhangxiao/Desktop/3D_MRI_Classification/Data', 32,
             validation_split=0.2,
             shuffle_train_val=True,
             shuffle=True,
@@ -39,14 +39,14 @@ def train():
         classes=classes_num, features=32, depth=3, padding='same',
         temperature=1.0, batchnorm=False, dropout=0.0)
     model.summary()
-    model.compile(loss='categorical_crossentropy', optimizer='RMSprop', metrics=['mse', 'accuracy'])
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 
     callbacks = []
     # x_train, y_train = Dataset.load_images('/home/xzhang/kerasLab/3D_MRI_Classification/Data')
     # y_train = np_utils.to_categorical(y_train, 2)
     model.fit_generator(train_generator,
-        epochs=20,
+        epochs=50,
         steps_per_epoch=train_steps_per_epoch,
         validation_data=val_generator,
         validation_steps=val_steps_per_epoch,
