@@ -20,10 +20,11 @@ from Model import Models
 def select_optimizer(optimizer_name, optimizer_args):
     return 0
     
-
+#/Users/zhangxiao/Desktop/3D_MRI_Classification/Data
+#/home/xzhang/kerasLab/3D_MRI_Classification/Data
 def train():
     train_generator, train_steps_per_epoch, val_generator, val_steps_per_epoch = Dataset.create_generators(
-            '/home/xzhang/kerasLab/3D_MRI_Classification/Data', 32,
+            '/Users/zhangxiao/Desktop/3D_MRI_Classification/Data', 4,
             validation_split=0.2,
             shuffle_train_val=True,
             shuffle=True,
