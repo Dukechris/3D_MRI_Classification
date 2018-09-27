@@ -36,7 +36,7 @@ def train():
     classes_num = 2 #len(set(labels.flatten()))
 
     model = Models.dilated_densenet(height=height, width=width, length=length, channels=channels, 
-        classes=classes_num, features=32, depth=3, padding='same',
+        classes=classes_num, features=32, depth=2, padding='same',
         temperature=1.0, batchnorm=False, dropout=0.0)
     model.summary()
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
